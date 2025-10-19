@@ -15,7 +15,7 @@ Visit our website: [index.html](index.html)
 ## Program Details
 
 - **Duration:** 26-week series (November 2025 - May 2026)
-- **Format:** Weekly 40-minute sessions
+- **Format:** Weekly 1-hour sessions (40-45 mins + questions)
 - **Time:** Mondays at 4:00 PM ET
 - **Delivery:** Remote only
 
