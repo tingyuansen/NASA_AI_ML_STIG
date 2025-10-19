@@ -8,10 +8,6 @@ The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group (AI/
 
 Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG brings together researchers and educators to build a comprehensive AI education framework tailored for the astronomy community.
 
-## Website
-
-Visit our website: [index.html](index.html)
-
 ## Program Details
 
 - **Duration:** 26-week series (November 2025 - May 2026)
