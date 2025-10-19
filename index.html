@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Cosmic Origins AI/ML STIG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #e2e8f0;
+            background-color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 4rem 0 3.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+            border-bottom: 1px solid #334155;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+        }
+
+        .header-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .nasa-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3.5px;
+            opacity: 0.85;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+
+        h1 {
+            font-size: 2.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            letter-spacing: -0.8px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.92;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            color: #94a3b8;
+            padding: 1.1rem 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e2e8f0;
+            background-color: #334155;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            background-color: #0f172a;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            padding: 0;
+        }
+
+        section:not(.hero) {
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #f1f5f9;
+            font-size: 2.25rem;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+        }
+
+        h3 {
+            color: #e2e8f0;
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h4 {
+            color: #cbd5e1;
+            font-size: 1.125rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #f1f5f9;
+            padding: 3.5rem;
+            border-radius: 4px;
+            margin-bottom: 4rem;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 1px solid #475569;
+        }
+
+        .hero h2 {
+            color: #60a5fa;
+            border-bottom: none;
+            font-size: 1.85rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0;
+        }
+
+        .hero h2::after {
+            display: none;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 1.125rem;
+            line-height: 1.85;
+            font-weight: 400;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 1px solid #475569;
+        }
+
+        .info-box strong {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            margin-bottom: 0.75rem;
+            font-size: 0.98rem;
+            color: #cbd5e1;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2.5rem 0;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            background-color: #1e293b;
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #ffffff;
+            padding: 1.125rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-table td {
+            padding: 1.125rem 1.5rem;
+            border-bottom: 1px solid #334155;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            background-color: #1e293b;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:hover:not(.module-header) {
+            background-color: #334155;
+        }
+
+        .schedule-table tr:hover:not(.module-header) td {
+            background-color: #334155;
+        }
+
+        .schedule-table .module-header {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            font-weight: 600;
+            color: #60a5fa;
+        }
+
+        .schedule-table .module-header td {
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.2px;
+            background: transparent;
+        }
+
+        /* Leadership List */
+        .leadership-list {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            list-style: none;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 6px;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .leadership-list li {
+            padding: 0.85rem 0;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-weight: 500;
+            border-bottom: 1px solid #475569;
+        }
+
+        .leadership-list li:last-child {
+            border-bottom: none;
+        }
+
+        .leadership-list .chair-tag {
+            color: #60a5fa;
+            font-weight: 700;
+            margin-left: 0.75rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Lecture Materials */
+        .lecture-materials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .lecture-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            border-top: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lecture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .lecture-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            border-color: #60a5fa;
+        }
+
+        .lecture-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lecture-card h3 {
+            margin-top: 0;
+            color: #60a5fa;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .lecture-card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.75;
+        }
+
+        .lecture-card ul {
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 1.25rem;
+        }
+
+        .lecture-card li {
+            margin-bottom: 0.6rem;
+            color: #94a3b8;
+        }
+
+        .lecture-card .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 0.875rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .lecture-card .btn:hover {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Links */
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #06b6d4;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #94a3b8;
+            padding: 3.5rem 3rem;
+            margin-top: 5rem;
+            border-top: 2px solid #334155;
+        }
+
+        .footer-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: #60a5fa;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #06b6d4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .header-content {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            nav a {
+                border-bottom: 1px solid #f1f5f9;
+                padding: 1rem 1.5rem;
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            section {
+                padding-left: 0;
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+
+            section:not(.hero) {
+                padding-bottom: 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .info-box {
+                padding: 1.5rem 1.75rem;
+            }
+
+            .lecture-materials {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .lecture-card {
+                padding: 2rem;
+            }
+
+            .leadership-list {
+                padding: 1.5rem 1.75rem;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            footer {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            border-left: 4px solid #06b6d4;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 1px solid #475569;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .highlight-box strong {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nasa-tag">NASA Cosmic Origins Program</div>
+            <h1>AI/ML Science and Technology Interest Group</h1>
+            <div class="subtitle">Building AI Literacy for Astronomical Research</div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#materials">Lecture Materials</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#participate">Participate</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="hero">
+            <h2>Mission Statement</h2>
+            <p>The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group (AI/ML STIG) addresses the critical need to upskill the astronomy community with AI literacy. We provide structured, domain-specific AI education through stackable, bite-sized modular training designed for astronomical research contexts.</p>
+        </section>
+
+        <section>
+            <h2>About the STIG</h2>
+            
+            <p>The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group (AI/ML STIG) addresses the critical need to upskill the astronomy community with AI literacy. We provide structured, domain-specific AI education through stackable, bite-sized modular training designed for astronomical research contexts.</p>
+            
+            <p>Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG brings together researchers and educators to build a comprehensive AI education framework tailored for the astronomy community.</p>
+        </section>
+
+        <section id="materials">
+            <h2>Featured Lecture Materials</h2>
+            <p>All lecture materials are open-source and designed to serve as templates for speakers and educators in the astronomy community.</p>
+            
+            <div class="lecture-materials">
+                <div class="lecture-card">
+                    <h3>Lecture 2: LLM API Basics</h3>
+                    <p><strong>Large Language Models as Research Agents: Part 1</strong></p>
+                    <p style="color: #60a5fa; font-weight: 500; margin-top: 0.75rem;">Yuan-Sen Ting, Ohio State University</p>
+                    <p>Learn the fundamentals of working with LLM APIs—making calls, managing conversations, and crafting effective prompts. Master key parameters, build multi-turn conversations, and implement prompting strategies for research tasks.</p>
+                    <p><strong>Topics Covered:</strong></p>
+                    <ul>
+                        <li>Understanding and using LLM APIs</li>
+                        <li>Temperature, max_tokens, system prompts</li>
+                        <li>Multi-turn conversations</li>
+                        <li>Prompting strategies for research</li>
+                        <li>Vision models for image analysis</li>
+                    </ul>
+                    <a href="Resources/Lecture2_Yuan-Sen_Ting/LLM_API_Basics_STIG.ipynb" class="btn" download>Download Notebook</a>
+                </div>
+
+                <div class="lecture-card">
+                    <h3>Lecture 3: Function Tools and RAG</h3>
+                    <p><strong>Large Language Models as Research Agents: Part 2</strong></p>
+                    <p style="color: #60a5fa; font-weight: 500; margin-top: 0.75rem;">Yuan-Sen Ting, Ohio State University</p>
+                    <p>Break through LLM limitations with function tools and Retrieval Augmented Generation. Build astronomical calculation tools, implement document-based Q&A, and create powerful research assistants.</p>
+                    <p><strong>Topics Covered:</strong></p>
+                    <ul>
+                        <li>Function tools for extending LLM capabilities</li>
+                        <li>Astronomical calculation tools</li>
+                        <li>Retrieval Augmented Generation (RAG)</li>
+                        <li>Document chunking and embedding search</li>
+                        <li>Vector databases for production systems</li>
+                    </ul>
+                    <a href="Resources/Lecture3_Yuan-Sen_Ting/LLM_Function_Tools_RAG_STIG.ipynb" class="btn" download>Download Notebook</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule">
+            <h2>Program Schedule</h2>
+            
+            <div class="info-box">
+                <p><strong>Duration:</strong> 26-week series (November 1, 2025 - May 31, 2026)</p>
+                <p><strong>Format:</strong> Weekly 40-minute sessions</p>
+                <p><strong>Time:</strong> Mondays at 4:00 PM ET</p>
+                <p><strong>Delivery:</strong> Remote only</p>
+            </div>
+
+            <h3>Lecture Series Overview</h3>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Date</th>
+                        <th>Topic</th>
+                        <th>Speaker</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Nov 3</td>
+                        <td>Overview</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 1: Large Language Models as Autonomous Agents</strong></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Nov 10</td>
+                        <td>LLM API Basics</td>
+                        <td>Yuan-Sen Ting</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Nov 17</td>
+                        <td>RAG & Function Tools</td>
+                        <td>Yuan-Sen Ting</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Nov 24</td>
+                        <td>LLM as Agent</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 2: Computing Resources</strong></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Dec 1</td>
+                        <td>NASA/NSF Programs (ACCESS, NAIRR)</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 3: Deep Learning Frameworks</strong></td>
+                    </tr>
+                    <tr>
+                        <td>6-7</td>
+                        <td>Dec 8 & 15</td>
+                        <td>PyTorch/JAX</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 4: Neural Network Theory</strong></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Jan 5</td>
+                        <td>Inductive Biases</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 5: Neural Network Architectures</strong></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Jan 12</td>
+                        <td>Convolutional Neural Networks (CNNs)</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Jan 19</td>
+                        <td>Recurrent Neural Networks (RNNs)</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Jan 26</td>
+                        <td>Graph Neural Networks (GNNs)</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Feb 2</td>
+                        <td>Transformers</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 6: Physics-Inspired Networks</strong></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Feb 9</td>
+                        <td>Equivariant Networks - Theory</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Feb 16</td>
+                        <td>Equivariant Networks - Applications</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Town Halls</strong></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Feb 23</td>
+                        <td>Mid-Series Town Hall</td>
+                        <td>—</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 7: Generative Models</strong></td>
+                    </tr>
+                    <tr>
+                        <td>16-20</td>
+                        <td>Mar 2 - Mar 30</td>
+                        <td>Normalizing Flows, Diffusion Models, Flow Matching, Simulation-Based Inference</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 8: Reinforcement Learning</strong></td>
+                    </tr>
+                    <tr>
+                        <td>21-23</td>
+                        <td>Apr 6 - Apr 20</td>
+                        <td>RL Fundamentals, Applications to Instrumentation & Telescope Scheduling</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Module 9: Data & Future</strong></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Apr 27</td>
+                        <td>Open-Source Datasets and Best Practices</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>May 4</td>
+                        <td>Foundation Models for Astronomy</td>
+                        <td>TBD</td>
+                    </tr>
+                    
+                    <tr class="module-header">
+                        <td colspan="4"><strong>Town Halls</strong></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>May 11</td>
+                        <td>Final Town Hall</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership Council</h2>
+            
+            <ul class="leadership-list">
+                <li>Yuan-Sen Ting, Ohio State University <span class="chair-tag">(Chair)</span></li>
+                <li>Andrew Saydjari, Princeton University</li>
+                <li>Alex Gagliano, MIT</li>
+                <li>Carol Cuesta-Lazaro, MIT</li>
+                <li>Digvijay Wadekar, Johns Hopkins University</li>
+                <li>Georgios Valogiannis, University of Chicago</li>
+                <li>Siddharth Mishra-Sharma, Boston University</li>
+            </ul>
+
+            <p style="margin-top: 2rem; color: #4a5568;">For inquiries, please contact: <a href="mailto:ting.74@osu.edu">ting.74@osu.edu</a></p>
+        </section>
+
+        <section id="participate">
+            <h2>How to Participate</h2>
+            
+            <h3>Membership</h3>
+            <p>The AI/ML STIG is open to the national and international community without regard to institutional affiliation, education, or career status. We welcome astronomers, astrophysicists, data scientists, and anyone interested in AI applications in astronomy.</p>
+
+            <div class="info-box">
+                <p><strong>Mailing List:</strong> Stay updated on upcoming lectures, events, and resources</p>
+                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc4UCo1Hr9rTtNGkbS3c0n3wRK6-BhngxW-kBM6xH_Fy9tFRA/viewform" target="_blank">Join our mailing list →</a></p>
+            </div>
+
+            <h3>Recordings</h3>
+            <p>All lecture recordings will be hosted on the NASA Cosmic Origins Program subpage, making them accessible to the broader community for asynchronous learning.</p>
+        </section>
+
+        <section id="resources">
+            <h2>Resources & Links</h2>
+            
+            <div class="lecture-materials">
+                <div class="lecture-card">
+                    <h3>GitHub Repository</h3>
+                    <p>Access all tutorial materials, code examples, and documentation</p>
+                    <a href="https://github.com/tingyuansen/NASA_AI_ML_STIG" class="btn" target="_blank">Visit GitHub</a>
+                </div>
+                
+                <div class="lecture-card">
+                    <h3>Community White Paper</h3>
+                    <p>Read our comprehensive white paper on AI literacy in astronomy</p>
+                    <a href="https://arxiv.org/abs/2509.02661" class="btn" target="_blank">Read Paper</a>
+                </div>
+                
+                <div class="lecture-card">
+                    <h3>Cosmic Origins Program</h3>
+                    <p>Learn more about NASA's Cosmic Origins Program</p>
+                    <a href="https://cor.gsfc.nasa.gov/" class="btn" target="_blank">Visit COR</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 NASA Cosmic Origins AI/ML Science and Technology Interest Group</p>
+            <p>Part of the <a href="https://cor.gsfc.nasa.gov/" target="_blank">NASA Cosmic Origins Program</a></p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                <a href="https://github.com/tingyuansen/NASA_AI_ML_STIG" target="_blank">GitHub</a> | 
+                <a href="mailto:ting.74@osu.edu">Contact: ting.74@osu.edu</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
