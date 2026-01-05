@@ -2,6 +2,14 @@
 
 **AI/ML Science and Technology Interest Group**
 
+---
+
+## 🌐 **[Visit the GitHub Pages Site for Lecture Recordings and Full Details](https://tingyuansen.github.io/NASA_AI_ML_STIG/)**
+
+All lecture recordings, slides, and additional resources are available on our GitHub Pages site.
+
+---
+
 ## About
 
 The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group (AI/ML STIG) addresses the critical need to upskill the astronomy community with AI literacy. We provide structured, domain-specific AI education through stackable, bite-sized modular training designed for astronomical research contexts.
