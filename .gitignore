@@ -28,3 +28,4 @@ build/
 # Environment variables
 .env
 
+slides_souces/
