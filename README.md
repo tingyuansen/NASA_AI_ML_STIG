@@ -4,9 +4,9 @@
 
 ---
 
-## 🌐 **[Visit the GitHub Pages Site for Lecture Recordings and Full Details](https://tingyuansen.github.io/NASA_AI_ML_STIG/)**
+## [Visit the Website for Lecture Recordings and Full Details](https://tingyuansen.github.io/NASA_AI_ML_STIG/)
 
-All lecture recordings, slides, and additional resources are available on our GitHub Pages site.
+All lecture recordings, slides, and additional resources are available on our website.
 
 ---
 
@@ -18,7 +18,7 @@ Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG br
 
 ## Program Details
 
-- **Duration:** 26-week series (November 2025 - May 2026)
+- **Duration:** 23-week series (November 2025 - May 2026)
 - **Format:** Weekly 1-hour sessions (40-45 mins + questions)
 - **Time:** Mondays at 4:00 PM ET
 - **Delivery:** Remote only
@@ -28,9 +28,21 @@ Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG br
 This repository contains open-source lecture materials including:
 - Jupyter notebooks with detailed tutorials
 - Code examples and exercises
+- Slide decks (PDF and HTML)
 - Documentation for speakers and educators
 
-Materials are designed to serve as templates for delivering high-quality AI/ML education in astronomy.
+Materials are located in `public/Resources/` and are designed to serve as templates for delivering high-quality AI/ML education in astronomy.
+
+## Website Development
+
+The website is built with [Next.js](https://nextjs.org/) + [Tailwind CSS](https://tailwindcss.com/) and deployed to GitHub Pages via GitHub Actions.
+
+To run locally:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Contact
 
@@ -38,5 +50,6 @@ For inquiries, please contact: ting.74@osu.edu
 
 ## Links
 
+- [Website](https://tingyuansen.github.io/NASA_AI_ML_STIG/)
 - [NASA Cosmic Origins Program](https://cor.gsfc.nasa.gov/)
-- [GitHub Repository](https://github.com/tingyuansen/NASA_AI_ML_STIG)
+- [Community White Paper (arXiv)](https://arxiv.org/abs/2509.02661)
