@@ -299,11 +299,11 @@ const lectures: Lecture[] = [
     youtube: "-J5t3CsgRP8",
     links: [
       {
-        label: "Tutorial 1: Cora Dataset (GitHub)",
+        label: "View/Download Notebook 1 on GitHub",
         href: `${GITHUB_BASE}/Resources/Lecture10_Tri_Nguyen/GNN_Tutorial1_Cora_STIG.ipynb`,
       },
       {
-        label: "Tutorial 2: Stellar Streams (GitHub)",
+        label: "View/Download Notebook 2 on GitHub",
         href: `${GITHUB_BASE}/Resources/Lecture10_Tri_Nguyen/GNN_Tutorial2_Streams_STIG.ipynb`,
       },
       {
