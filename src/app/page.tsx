@@ -7,7 +7,9 @@ import React, { useState, useEffect } from "react";
 /* ------------------------------------------------------------------ */
 
 const GITHUB_BASE =
-  "https://github.com/tingyuansen/NASA_AI_ML_STIG/blob/main";
+  "https://github.com/tingyuansen/NASA_AI_ML_STIG/blob/main/public";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 interface Lecture {
   number: number;
@@ -40,7 +42,7 @@ const lectures: Lecture[] = [
     links: [
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture1_Jesse_Thaler/The_Future_of_AI_and_MPS_Workshop.pdf",
+        href: `${BASE_PATH}/Resources/Lecture1_Jesse_Thaler/The_Future_of_AI_and_MPS_Workshop.pdf`,
       },
       {
         label: "Read White Paper on arXiv",
@@ -70,7 +72,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides",
-        href: "/Resources/Lecture2_Yuan-Sen_Ting/STIG_Lecture2_Slides/",
+        href: `${BASE_PATH}/Resources/Lecture2_Yuan-Sen_Ting/STIG_Lecture2_Slides/`,
       },
     ],
     attribution: {
@@ -104,7 +106,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides",
-        href: "/Resources/Lecture3_Yuan-Sen_Ting/STIG_Lecture3_Slides/",
+        href: `${BASE_PATH}/Resources/Lecture3_Yuan-Sen_Ting/STIG_Lecture3_Slides/`,
       },
     ],
     attribution: {
@@ -138,7 +140,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture4_Francisco_Villaescusa-Navarro/AI_Agents_and_Multi-Agent_Systems.pdf",
+        href: `${BASE_PATH}/Resources/Lecture4_Francisco_Villaescusa-Navarro/AI_Agents_and_Multi-Agent_Systems.pdf`,
       },
     ],
   },
@@ -163,7 +165,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides",
-        href: "/Resources/Lecture5_Yuan-Sen_Ting/STIG_Lecture5_Slides/",
+        href: `${BASE_PATH}/Resources/Lecture5_Yuan-Sen_Ting/STIG_Lecture5_Slides/`,
       },
     ],
     attribution: {
@@ -198,7 +200,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture6_Phill_Cargile/PyTorch_Autodiff_STIG.pdf",
+        href: `${BASE_PATH}/Resources/Lecture6_Phill_Cargile/PyTorch_Autodiff_STIG.pdf`,
       },
     ],
   },
@@ -225,7 +227,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture7_Phill_Cargile/JAX_STIG.pdf",
+        href: `${BASE_PATH}/Resources/Lecture7_Phill_Cargile/JAX_STIG.pdf`,
       },
     ],
   },
@@ -252,7 +254,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture8_John_Wu/Inductive_Biases_STIG.pdf",
+        href: `${BASE_PATH}/Resources/Lecture8_John_Wu/Inductive_Biases_STIG.pdf`,
       },
     ],
   },
@@ -306,7 +308,7 @@ const lectures: Lecture[] = [
       },
       {
         label: "View Slides (PDF)",
-        href: "/Resources/Lecture10_Tri_Nguyen/GNN_Tutorial_STIG.pdf",
+        href: `${BASE_PATH}/Resources/Lecture10_Tri_Nguyen/GNN_Tutorial_STIG.pdf`,
       },
     ],
   },
