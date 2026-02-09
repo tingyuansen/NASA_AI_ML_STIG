@@ -754,17 +754,29 @@ function ScheduleSection() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-slate-500 mt-4 pt-4 border-t border-slate-800">
-            Meeting link available at the{" "}
+          <div className="mt-5 pt-5 border-t border-slate-800">
             <a
               href="https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/artificial-intelligence-machine-learning-science-technology-interest-group-ai-ml-stig/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300"
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-blue-500/10 border border-blue-500/25 hover:bg-blue-500/20 hover:border-blue-500/40 transition-all group"
             >
-              NASA AI/ML STIG Official Page
+              <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              <div>
+                <div className="text-sm font-semibold text-blue-300 group-hover:text-blue-200 transition-colors">
+                  Join the Weekly Meeting
+                </div>
+                <div className="text-xs text-slate-500">
+                  Meeting link on the NASA AI/ML STIG Official Page
+                </div>
+              </div>
+              <svg className="w-4 h-4 text-slate-600 group-hover:text-blue-400 transition-colors ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
             </a>
-          </p>
+          </div>
         </div>
 
         {/* Schedule table with expandable lecture details */}
