@@ -332,6 +332,10 @@ const lectures: Lecture[] = [
         label: "View/Download Notebook on GitHub",
         href: `${GITHUB_BASE}/Resources/Lecture11_Helen_Qu/Transformers_STIG.ipynb`,
       },
+      {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture11_Helen_Qu/Transformers_STIG.pdf`,
+      },
     ],
   },
 ];
