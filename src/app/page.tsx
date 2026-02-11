@@ -327,6 +327,7 @@ const lectures: Lecture[] = [
       "Training a small autoregressive language model",
       "Text generation with temperature and top-k sampling",
     ],
+    youtube: "GfqGzho22z8",
     links: [
       {
         label: "View/Download Notebook on GitHub",
