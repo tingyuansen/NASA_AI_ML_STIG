@@ -339,6 +339,28 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 12,
+    title: "Recurrent Neural Networks",
+    speaker: "Daniel Muthukrishna",
+    affiliation: "MIT / Harvard-Smithsonian CfA",
+    description:
+      "Build Recurrent Neural Networks from first principles and apply them to real-time classification of astronomical transients. Implement vanilla RNNs, LSTMs, and GRUs in PyTorch and train a classifier on supernova light curves.",
+    topics: [
+      "Motivation: sequential and time-series data in astronomy",
+      "Vanilla RNNs: architecture, forward pass, and vanishing gradients",
+      "Gated architectures: LSTM and GRU cells",
+      "Uni-directional vs. bi-directional RNNs",
+      "Building an RNN from scratch in PyTorch",
+      "Application: supernova light curve classification with LSTMs",
+    ],
+    links: [
+      {
+        label: "View/Download Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture12_Daniel_Muthukrishna/RNN_Tutorial_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
