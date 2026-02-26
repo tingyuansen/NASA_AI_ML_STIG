@@ -354,6 +354,7 @@ const lectures: Lecture[] = [
       "Building an RNN from scratch in PyTorch",
       "Application: supernova light curve classification with LSTMs",
     ],
+    youtube: "Pt3SWhc2hWg",
     links: [
       {
         label: "View/Download Notebook on GitHub",
