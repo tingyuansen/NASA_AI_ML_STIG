@@ -362,6 +362,27 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 13,
+    title: "Equivariant Neural Networks",
+    speaker: "Anna Scaife",
+    affiliation: "U. of Manchester",
+    description:
+      "An introduction to equivariant neural networks, exploring the theoretical foundations of how symmetry constraints can be built directly into neural network architectures for more efficient and physically meaningful learning.",
+    topics: [
+      "Symmetries and invariances in physics and astronomy",
+      "Group theory foundations for neural networks",
+      "Equivariant layers and architectures",
+      "Translation, rotation, and permutation equivariance",
+      "Applications to astronomical data analysis",
+    ],
+    links: [
+      {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture13_Anna_Scaife/Equivariant_Neural_Networks_STIG.pdf`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
