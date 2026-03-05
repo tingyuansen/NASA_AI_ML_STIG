@@ -376,6 +376,7 @@ const lectures: Lecture[] = [
       "Translation, rotation, and permutation equivariance",
       "Applications to astronomical data analysis",
     ],
+    youtube: "HQwT2WsisAk",
     links: [
       {
         label: "View Slides (PDF)",
