@@ -384,6 +384,28 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 14,
+    title: "Equivariant Neural Networks (Application)",
+    speaker: "Anna Scaife",
+    affiliation: "U. of Manchester",
+    description:
+      "Hands-on applications of equivariant neural networks to astronomical problems, building on the theoretical foundations from the previous lecture to implement symmetry-aware models in PyTorch.",
+    topics: [
+      "Implementing equivariant architectures in PyTorch",
+      "Applying symmetry constraints to astronomical datasets",
+      "Performance gains from built-in equivariance",
+      "Case studies in astronomy and astrophysics",
+      "Best practices and practical considerations",
+    ],
+    youtube: "6Y4adyDFU6A",
+    links: [
+      {
+        label: "View/Download Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture14_Anna_Scaife/Equivariant_Neural_Networks_Application_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
