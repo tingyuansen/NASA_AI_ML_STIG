@@ -406,6 +406,35 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 15,
+    title: "Normalizing Flows",
+    speaker: "Gregory Green",
+    affiliation: "Westlake University",
+    description:
+      "An introduction to normalizing flows for generative modeling, covering the mathematical foundations of invertible transformations and density estimation, with hands-on tutorials implementing RealNVP and flow matching techniques.",
+    topics: [
+      "Foundations of normalizing flows and change of variables",
+      "Invertible transformations and Jacobian determinants",
+      "RealNVP: coupling layers and affine transformations",
+      "Flow matching: continuous normalizing flows",
+      "Applications to density estimation in astronomy",
+    ],
+    links: [
+      {
+        label: "View Slides",
+        href: "https://gregreen.github.io/presentations/presentations/normalizing_flows_tutorial_2026y03m.html#/",
+      },
+      {
+        label: "View/Download RealNVP Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture15_Gregory_Green/Normalizing_Flows_RealNVP_STIG.ipynb`,
+      },
+      {
+        label: "View/Download Flow Matching Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture15_Gregory_Green/Normalizing_Flows_Flow_Matching_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
