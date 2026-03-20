@@ -420,6 +420,7 @@ const lectures: Lecture[] = [
       "Flow matching: continuous normalizing flows",
       "Applications to density estimation in astronomy",
     ],
+    youtube: "8HWQKOJuUkA",
     links: [
       {
         label: "View Slides",
