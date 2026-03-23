@@ -436,6 +436,35 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 16,
+    title: "Diffusion Models",
+    speaker: "Duo Xu",
+    affiliation: "University of Toronto",
+    description:
+      "An introduction to denoising diffusion probabilistic models (DDPMs) for astronomy, covering the mathematical foundations of forward and reverse diffusion processes, conditional generation of synthetic galaxy images, and image-to-image translation for data restoration.",
+    topics: [
+      "Motivation: from data-starved to data-dominated astronomy",
+      "Generative model landscape: VAEs, GANs, normalizing flows, diffusion, flow matching, and score-based models",
+      "Forward and reverse diffusion processes",
+      "Conditional DDPMs for synthetic galaxy generation",
+      "Image-to-image translation for astronomical data restoration",
+    ],
+    links: [
+      {
+        label: "View/Download Slides on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture16_Duo_Xu/Diffusion_Models_STIG.pdf`,
+      },
+      {
+        label: "View/Download Galaxy Tutorial Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture16_Duo_Xu/Diffusion_Models_Galaxy_Tutorial_STIG.ipynb`,
+      },
+      {
+        label: "View/Download Image-to-Image Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture16_Duo_Xu/Diffusion_Models_Image2Image_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
