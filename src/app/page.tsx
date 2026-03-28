@@ -450,6 +450,7 @@ const lectures: Lecture[] = [
       "Conditional DDPMs for synthetic galaxy generation",
       "Image-to-image translation for astronomical data restoration",
     ],
+    youtube: "JNHNpjTA0q0",
     links: [
       {
         label: "View/Download Slides on GitHub",
