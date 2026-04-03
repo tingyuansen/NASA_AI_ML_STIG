@@ -466,6 +466,35 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 17,
+    title: "Flow Matching",
+    speaker: "Tomasz Rozanski",
+    affiliation: "ANU",
+    description:
+      "A hands-on tutorial on flow matching for generative modeling in astronomy, covering continuous normalizing flows applied to stellar population modeling with both single and conditional population examples.",
+    topics: [
+      "Introduction to flow matching and continuous normalizing flows",
+      "Vector fields and optimal transport",
+      "Single population modeling of stellar properties",
+      "Conditional flow matching for population-dependent generation",
+      "Applications to isochrone and stellar catalog generation",
+    ],
+    links: [
+      {
+        label: "View/Download Slides (PDF)",
+        href: `${GITHUB_BASE}/Resources/Lecture17_Tomasz_Rozanski/Flow_Matching_STIG.pdf`,
+      },
+      {
+        label: "View/Download Single Population Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture17_Tomasz_Rozanski/Flow_Matching_Single_Population_STIG.ipynb`,
+      },
+      {
+        label: "View/Download Conditional Population Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture17_Tomasz_Rozanski/Flow_Matching_Conditional_Population_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
