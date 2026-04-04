@@ -480,6 +480,7 @@ const lectures: Lecture[] = [
       "Conditional flow matching for population-dependent generation",
       "Applications to isochrone and stellar catalog generation",
     ],
+    youtube: "eAiXMEVAMHc",
     links: [
       {
         label: "View/Download Slides (PDF)",
