@@ -496,6 +496,35 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 18,
+    title: "Simulation-Based Inference",
+    speaker: "Tomasz Rozanski",
+    affiliation: "ANU",
+    description:
+      "An introduction to simulation-based inference (SBI) for astronomy, using normalizing flows to perform posterior estimation in settings where the likelihood is intractable. Hands-on tutorials cover a toy physics problem and a stellar population application.",
+    topics: [
+      "Motivation: inference when the likelihood is intractable",
+      "Approximate Bayesian computation and its limitations",
+      "Neural posterior estimation with normalizing flows",
+      "Tutorial: inferring parameters from ball throw observations",
+      "Application: SBI for stellar population modeling",
+    ],
+    links: [
+      {
+        label: "View/Download Slides (PDF)",
+        href: `${GITHUB_BASE}/Resources/Lecture18_Tomasz_Rozanski/Simulation_Based_Inference_STIG.pdf`,
+      },
+      {
+        label: "View/Download Ball Throw Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture18_Tomasz_Rozanski/SBI_Ball_Throw_STIG.ipynb`,
+      },
+      {
+        label: "View/Download Stellar Population Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture18_Tomasz_Rozanski/SBI_Stellar_Population_STIG.ipynb`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {

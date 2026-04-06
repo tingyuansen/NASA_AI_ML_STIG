@@ -1,0 +1,18 @@
+name: isochrones
+channels:
+  - conda-forge
+dependencies:
+  # Stable base for isochrones 2.1 and current conda packages.
+  - python=3.10
+  # Numba 0.59.x supports NumPy >=1.22,<1.27.
+  - numpy=1.26.*
+  # isochrones 2.1 still uses DataFrame.append(), removed in pandas 2.0.
+  - pandas=1.5.*
+  - scipy=1.10.*
+  - numba=0.59.*
+  - astropy=5.3.*
+  - pytables=3.8.*
+  - nose=1.3.*
+  - pip
+  - pip:
+      - isochrones==2.1
