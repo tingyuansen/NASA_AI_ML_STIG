@@ -510,6 +510,7 @@ const lectures: Lecture[] = [
       "Tutorial: inferring parameters from ball throw observations",
       "Application: SBI for stellar population modeling",
     ],
+    youtube: "bArKnWB92o8",
     links: [
       {
         label: "View/Download Slides (PDF)",
