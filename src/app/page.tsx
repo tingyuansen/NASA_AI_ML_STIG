@@ -566,7 +566,7 @@ const schedule: ScheduleEntry[] = [
   { week: 17, date: "Mar 30", topic: "Flow Matching", speaker: "Tomasz Rozanski, ANU" },
   { week: 18, date: "Apr 6", topic: "Simulation-Based Inference", speaker: "Tomasz Rozanski, ANU" },
   { module: "Module 6: Ethics and Philosophy of Science" },
-  { week: 19, date: "Apr 13", topic: "Peer Review with AI: Promise and Pitfalls", speaker: "Licia Verde, U. of Barcelona/JCAP" },
+  { week: 19, date: "Apr 13", topic: "AI and Scientific Publishing", speaker: "Licia Verde, U. of Barcelona/JCAP" },
   { week: 20, date: "Apr 27", topic: "The Meaning of Understanding in AI-Laden Science", speaker: "Siyu Yao, STJU" },
   { module: "Module 7: NSF Funding Opportunity" },
   { week: 21, date: "Apr 20", topic: "NSF Funding Opportunity", speaker: "Andrea Berlind, NSF" },
