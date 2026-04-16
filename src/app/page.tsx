@@ -540,6 +540,7 @@ const lectures: Lecture[] = [
       "AI 'slop', paper mills, and the effort imbalance in peer review",
       "The future of quality assurance in scientific literature",
     ],
+    youtube: "SoBprVD5lEI",
     links: [
       {
         label: "View Slides (PDF)",
