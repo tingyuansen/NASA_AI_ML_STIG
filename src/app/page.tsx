@@ -526,6 +526,23 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 19,
+    title: "AI and Scientific Publishing",
+    speaker: "Licia Verde",
+    affiliation: "U. of Barcelona/JCAP",
+    description:
+      "An exploration of the intersection of AI and scientific publishing, and the ethical considerations surrounding AI-laden science.",
+    topics: [
+      "AI in scientific publishing",
+    ],
+    links: [
+      {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture19_Licia_Verde/AI_and_Scientific_Publishing_STIG.pdf`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
