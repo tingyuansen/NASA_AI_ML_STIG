@@ -532,9 +532,13 @@ const lectures: Lecture[] = [
     speaker: "Licia Verde",
     affiliation: "U. of Barcelona/JCAP",
     description:
-      "An exploration of the intersection of AI and scientific publishing, and the ethical considerations surrounding AI-laden science.",
+      "Examine the evolving landscape of scientific publishing in the era of AI. Explore how Large Language Models impact the balance between paper generation and peer review, and the challenges of maintaining quality control.",
     topics: [
-      "AI in scientific publishing",
+      "The evolution and features of academic publishing",
+      "Bibliometrics, the 'Publish or Perish' culture, and Goodhart's Law",
+      "The impact of LLMs on the volume and quality of submissions",
+      "AI 'slop', paper mills, and the effort imbalance in peer review",
+      "The future of quality assurance in scientific literature",
     ],
     links: [
       {
