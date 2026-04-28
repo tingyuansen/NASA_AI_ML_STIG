@@ -548,6 +548,27 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 20,
+    title: "The Meaning of Understanding in AI-Laden Science",
+    speaker: "Siyu Yao & André Curtis-Trudel",
+    affiliation: "Shanghai Jiao Tong University; U. of Cincinnati",
+    description:
+      "A philosophical examination of what it means to understand in an era of AI-laden science. Explore the relationship between AI, explanation, and understanding, and consider what scientific pursuits remain worthy in this new landscape.",
+    topics: [
+      "AI-laden science and the relevance of philosophy",
+      "AI, explanation, and understanding",
+      "Empirical study of understanding",
+      "What's worthy of pursuit now?",
+      "Conclusion and discussion",
+    ],
+    links: [
+      {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture20_Siyu_Yao_Andre_Curtis-Trudel/The_Meaning_of_Understanding_in_AI_Laden_Science_STIG.pdf`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
@@ -589,12 +610,10 @@ const schedule: ScheduleEntry[] = [
   { week: 18, date: "Apr 6", topic: "Simulation-Based Inference", speaker: "Tomasz Rozanski, ANU" },
   { module: "Module 6: Ethics and Philosophy of Science" },
   { week: 19, date: "Apr 13", topic: "AI and Scientific Publishing", speaker: "Licia Verde, U. of Barcelona/JCAP" },
-  { week: 20, date: "Apr 27", topic: "The Meaning of Understanding in AI-Laden Science", speaker: "Siyu Yao, STJU" },
-  { module: "Module 7: NSF Funding Opportunity" },
-  { week: 21, date: "Apr 20", topic: "NSF Funding Opportunity", speaker: "Andrea Berlind, NSF" },
-  { module: "Module 8: Reinforcement Learning" },
-  { week: 22, date: "May 4", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
-  { week: 23, date: "May 11", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
+  { week: 20, date: "Apr 27", topic: "The Meaning of Understanding in AI-Laden Science", speaker: "Siyu Yao, SJTU & André Curtis-Trudel, U. Cincinnati" },
+  { module: "Module 7: Reinforcement Learning" },
+  { week: 21, date: "May 4", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
+  { week: 22, date: "May 11", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
 ];
 
 const leadership = [
@@ -942,7 +961,7 @@ function ScheduleSection() {
             Program Schedule
           </h2>
           <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-            A 23-week open-source lecture series. Click any row with a
+            A 22-week open-source lecture series. Click any row with a
             <span className="inline-flex items-center gap-1 mx-1 text-[11px] font-medium text-blue-400/70 bg-blue-500/8 border border-blue-500/15 px-2 py-0.5 rounded-full align-middle">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
               Video &amp; Materials
@@ -955,7 +974,7 @@ function ScheduleSection() {
         <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 mb-10">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: "Duration", value: "23 weeks (Nov 2025 - May 2026)" },
+              { label: "Duration", value: "22 weeks (Nov 2025 - May 2026)" },
               { label: "Format", value: "Weekly 1-hour sessions" },
               { label: "Time", value: "Mondays at 4:00 PM ET" },
               { label: "Delivery", value: "Remote only" },

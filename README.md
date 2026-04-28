@@ -18,7 +18,7 @@ Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG br
 
 ## Program Details
 
-- **Duration:** 23-week series (November 2025 - May 2026)
+- **Duration:** 22-week series (November 2025 - May 2026)
 - **Format:** Weekly 1-hour sessions (40-45 mins + questions)
 - **Time:** Mondays at 4:00 PM ET
 - **Delivery:** Remote only
