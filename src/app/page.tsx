@@ -562,6 +562,7 @@ const lectures: Lecture[] = [
       "What's worthy of pursuit now?",
       "Conclusion and discussion",
     ],
+    youtube: "ahTP9fDR_0I",
     links: [
       {
         label: "View Slides (PDF)",
