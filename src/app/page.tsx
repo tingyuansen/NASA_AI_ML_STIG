@@ -612,9 +612,11 @@ const schedule: ScheduleEntry[] = [
   { module: "Module 6: Ethics and Philosophy of Science" },
   { week: 19, date: "Apr 13", topic: "AI and Scientific Publishing", speaker: "Licia Verde, U. of Barcelona/JCAP" },
   { week: 20, date: "Apr 27", topic: "The Meaning of Understanding in AI-Laden Science", speaker: "Siyu Yao, SJTU & André Curtis-Trudel, U. Cincinnati" },
-  { module: "Module 7: Reinforcement Learning" },
-  { week: 21, date: "May 4", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
-  { week: 22, date: "May 11", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
+  { module: "Module 7: Opportunities at NASA" },
+  { week: 21, date: "May 4", topic: "NASA ASTRA Initiative", speaker: "Peter Kurczynski & Swara Ravindranath, NASA GSFC" },
+  { module: "Module 8: Reinforcement Learning" },
+  { week: 22, date: "May 11", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
+  { week: 23, date: "May 18", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
 ];
 
 const leadership = [
