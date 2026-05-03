@@ -621,10 +621,10 @@ const schedule: ScheduleEntry[] = [
 
 const leadership = [
   { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true },
+  { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: true },
   { name: "Andrew Saydjari", affiliation: "Princeton University", chair: false },
   { name: "Alex Gagliano", affiliation: "MIT", chair: false },
   { name: "Carol Cuesta-Lazaro", affiliation: "Institute for Advanced Study at Princeton/Flatiron Institute", chair: false },
-  { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: true },
   { name: "Georgios Valogiannis", affiliation: "University of Chicago", chair: false },
   { name: "Siddharth Mishra-Sharma", affiliation: "Boston University", chair: false },
 ];
