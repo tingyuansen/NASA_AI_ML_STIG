@@ -624,7 +624,7 @@ const leadership = [
   { name: "Andrew Saydjari", affiliation: "Princeton University", chair: false },
   { name: "Alex Gagliano", affiliation: "MIT", chair: false },
   { name: "Carol Cuesta-Lazaro", affiliation: "Institute for Advanced Study at Princeton/Flatiron Institute", chair: false },
-  { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: false },
+  { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: true },
   { name: "Georgios Valogiannis", affiliation: "University of Chicago", chair: false },
   { name: "Siddharth Mishra-Sharma", affiliation: "Boston University", chair: false },
 ];
@@ -1145,7 +1145,7 @@ function LeadershipSection() {
                 <span className="font-medium text-white">{person.name}</span>
                 {person.chair && (
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-blue-400">
-                    (Chair)
+                    (Co-Chair)
                   </span>
                 )}
               </div>
