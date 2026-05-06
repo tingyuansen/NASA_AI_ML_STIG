@@ -584,6 +584,7 @@ const lectures: Lecture[] = [
       "Community engagement and involvement opportunities",
       "Open discussion and Q&A",
     ],
+    youtube: "LsOPVqgf7Nw",
     links: [
       {
         label: "ASTRA Initiative Homepage",
