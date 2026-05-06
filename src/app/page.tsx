@@ -591,7 +591,7 @@ const lectures: Lecture[] = [
         href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/studies/astra-initiative/",
       },
       {
-        label: "ASTRA Web Update (PDF, Mar 2026)",
+        label: "Mission Concepts (PDF)",
         href: "https://assets.science.nasa.gov/content/dam/science/astro/documents/ASTRA_Web_Update_2026-03-25.pdf",
       },
       {
