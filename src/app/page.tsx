@@ -570,6 +570,35 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 21,
+    title: "NASA ASTRA Initiative",
+    speaker: "Peter Kurczynski & Swara Ravindranath",
+    affiliation: "NASA GSFC",
+    description:
+      "ASTRA is an innovative and fast-developing initiative to encourage new astrophysics mission concepts for consideration by NASA. Artificial Intelligence will have increasing impact on NASA astrophysics. Learn how you can become involved. This will be a brief presentation followed by discussion and Q&A.",
+    topics: [
+      "The ASTRA initiative: goals and scope",
+      "New astrophysics mission concepts for NASA",
+      "AI's growing role in NASA astrophysics",
+      "Community engagement and involvement opportunities",
+      "Open discussion and Q&A",
+    ],
+    links: [
+      {
+        label: "ASTRA Initiative Homepage",
+        href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/studies/astra-initiative/",
+      },
+      {
+        label: "ASTRA Web Update (PDF, Mar 2026)",
+        href: "https://assets.science.nasa.gov/content/dam/science/astro/documents/ASTRA_Web_Update_2026-03-25.pdf",
+      },
+      {
+        label: "Ad ASTRA Community Workshop (Sept 2026)",
+        href: "https://conference.ipac.caltech.edu/community2026/",
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
