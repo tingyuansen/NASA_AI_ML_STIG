@@ -587,6 +587,10 @@ const lectures: Lecture[] = [
     youtube: "LsOPVqgf7Nw",
     links: [
       {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture21_Peter_Kurczynski_Swara_Ravindranath/ASTRA_Intro_STIG.pdf`,
+      },
+      {
         label: "ASTRA Initiative Homepage",
         href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/studies/astra-initiative/",
       },
