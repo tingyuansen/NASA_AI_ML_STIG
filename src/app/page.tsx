@@ -604,6 +604,34 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 22,
+    title: "Reinforcement Learning: Classical Foundations and the LLM Era",
+    speaker: "Carol Cuesta-Lazaro",
+    affiliation: "Institute for Advanced Study at Princeton / Flatiron Institute",
+    description:
+      "An introduction to reinforcement learning from its classical foundations to its central role in modern large language models. Trace the arc from TD-Gammon and AlphaGo through DQN and multi-agent emergent behavior to RLHF and RLVR, and learn how policy gradients turn a non-differentiable reward signal into a usable training objective.",
+    topics: [
+      "A brief history of RL: TD-Gammon, AlphaGo, DQN, RLHF, and RLVR",
+      "The agent-environment loop: states, actions, policies, and rewards",
+      "How RL differs from supervised learning: shifting data, exploration vs. exploitation, evaluative and delayed rewards",
+      "The non-differentiability of the learning problem and policy gradients",
+      "The REINFORCE estimator, baselines, and reward-to-go for variance reduction",
+      "Reinforcement Learning from Human Feedback (RLHF) for instruction-tuned models",
+      "Reinforcement Learning from Verifiable Rewards (RLVR) and reasoning in LLMs",
+      "Open questions: is RL teaching new capabilities or sharpening existing ones?",
+    ],
+    links: [
+      {
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture22_Carol_Cuesta-Lazaro/Reinforcement_Learning_Fundamentals_STIG.pdf`,
+      },
+      {
+        label: "View Handwritten Notes (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture22_Carol_Cuesta-Lazaro/Reinforcement_Learning_Fundamentals_Notes_STIG.pdf`,
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
