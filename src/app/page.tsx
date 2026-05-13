@@ -606,7 +606,7 @@ const lectures: Lecture[] = [
   },
   {
     number: 22,
-    title: "Reinforcement Learning: Classical Foundations and the LLM Era",
+    title: "Reinforcement Learning Fundamentals",
     speaker: "Carol Cuesta-Lazaro",
     affiliation: "Institute for Advanced Study at Princeton / Flatiron Institute",
     description:
@@ -621,6 +621,7 @@ const lectures: Lecture[] = [
       "Reinforcement Learning from Verifiable Rewards (RLVR) and reasoning in LLMs",
       "Open questions: is RL teaching new capabilities or sharpening existing ones?",
     ],
+    youtube: "lrAt3rPPznI",
     links: [
       {
         label: "View Slides (PDF)",
