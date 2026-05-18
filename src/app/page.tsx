@@ -633,6 +633,32 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 23,
+    title: "Reinforcement Learning Applications",
+    speaker: "Carol Cuesta-Lazaro",
+    affiliation: "Institute for Advanced Study at Princeton / Flatiron Institute",
+    description:
+      "A hands-on reinforcement learning tutorial that builds policy-gradient methods from scratch with LunarLander as the running environment, progressing from vanilla REINFORCE to variance-reduced policy gradients and actor-critic learning.",
+    topics: [
+      "Using LunarLander to connect the agent-environment loop to code",
+      "Implementing a policy network and sampling actions with PyTorch",
+      "Training vanilla REINFORCE from trajectory-level returns",
+      "Reducing variance with reward-to-go, discounting, and normalized advantages",
+      "Building actor-critic methods with a learned value-function baseline",
+      "Comparing learning curves across REINFORCE, improved REINFORCE, and actor-critic",
+    ],
+    links: [
+      {
+        label: "View/Download Notebook on GitHub",
+        href: `${GITHUB_BASE}/Resources/Lecture23_Carol_Cuesta-Lazaro/Reinforcement_Learning_from_Scratch_STIG.ipynb`,
+      },
+      {
+        label: "Source Repository",
+        href: "https://github.com/florpi/rl-from-scratch",
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
