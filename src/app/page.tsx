@@ -653,10 +653,6 @@ const lectures: Lecture[] = [
         label: "View/Download Notebook on GitHub",
         href: `${GITHUB_BASE}/Resources/Lecture23_Carol_Cuesta-Lazaro/Reinforcement_Learning_from_Scratch_STIG.ipynb`,
       },
-      {
-        label: "Source Repository",
-        href: "https://github.com/florpi/rl-from-scratch",
-      },
     ],
   },
 ];
