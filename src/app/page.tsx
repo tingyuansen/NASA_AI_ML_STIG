@@ -702,7 +702,7 @@ const schedule: ScheduleEntry[] = [
   { module: "Module 8: Reinforcement Learning" },
   { week: 22, date: "May 11", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
   { week: 23, date: "May 18", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
-  { module: "Summer Seminars" },
+  { module: "Module 9: Agentic Workflows for Instrumentation Design" },
   { week: 24, date: "Jun 1", topic: "From text to spaceship", speaker: "Ryan McClelland, NASA GSFC" },
 ];
 
@@ -911,7 +911,7 @@ function AboutSection() {
         <div className="grid sm:grid-cols-3 gap-6 mt-12">
           {[
             { label: "24", sub: "Total Sessions" },
-            { label: "8", sub: "Core Modules" },
+            { label: "9", sub: "Modules" },
             { label: "Open", sub: "To Everyone" },
           ].map((stat, i) => (
             <div
@@ -1051,7 +1051,7 @@ function ScheduleSection() {
             Program Schedule
           </h2>
           <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-            A 23-lecture open-source series with one added summer seminar.
+            A 24-session open-source lecture series across 9 modules.
             Click any row with a
             <span className="inline-flex items-center gap-1 mx-1 text-[11px] font-medium text-blue-400/70 bg-blue-500/8 border border-blue-500/15 px-2 py-0.5 rounded-full align-middle">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
@@ -1066,7 +1066,7 @@ function ScheduleSection() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { label: "Duration", value: "24 sessions (Nov 2025 - Jun 2026)" },
-              { label: "Format", value: "23 weekly lectures + 1 summer seminar" },
+              { label: "Format", value: "Weekly lectures plus focused module talks" },
               { label: "Time", value: "Mondays at 4:00 PM ET" },
               { label: "Delivery", value: "Remote only" },
             ].map((item, i) => (
