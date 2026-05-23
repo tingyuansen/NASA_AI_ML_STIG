@@ -648,6 +648,7 @@ const lectures: Lecture[] = [
       "Building actor-critic methods with a learned value-function baseline",
       "Comparing learning curves across REINFORCE, improved REINFORCE, and actor-critic",
     ],
+    youtube: "lDphCPxn1BE",
     links: [
       {
         label: "View/Download Notebook on GitHub",
