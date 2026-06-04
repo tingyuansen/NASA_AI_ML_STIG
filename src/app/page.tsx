@@ -656,6 +656,32 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 24,
+    title: "From Text to Spaceship",
+    speaker: "Ryan McClelland",
+    affiliation: "NASA GSFC",
+    description:
+      "An exploration of how AI is reshaping spacecraft design — using generative design and agentic workflows to translate text-based science objectives into optimized flight hardware, compressing structural design timelines from months to days through a secure, cloud-deployed ecosystem of AI tools that spans concept, analysis, and manufacturing.",
+    topics: [
+      "AI-driven generative design for spaceflight structures",
+      "From language-defined requirements to mission design",
+      "Agentic workflows linking concept, analysis, and manufacturing",
+      "Cloud-deployed AI tool ecosystems for engineering",
+      "Examples from Hubble, ISS, and payload hardware",
+    ],
+    youtube: "xj4Irl3OFt8",
+    links: [
+      {
+        label: "Davinci by Celedon Solutions (AI engineering platform)",
+        href: "https://celedon.solutions/davinci/",
+      },
+      {
+        label: "Synera (agentic AI for engineering workflows)",
+        href: "https://www.synera.io/",
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
@@ -704,7 +730,7 @@ const schedule: ScheduleEntry[] = [
   { week: 22, date: "May 11", topic: "Reinforcement Learning Fundamentals", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
   { week: 23, date: "May 18", topic: "Reinforcement Learning Applications", speaker: "Carol Cuesta-Lazaro, IAS/Flatiron" },
   { module: "Module 9: Agentic Workflows for Instrumentation Design" },
-  { week: 24, date: "Jun 1", topic: "From text to spaceship", speaker: "Ryan McClelland, NASA GSFC" },
+  { week: 24, date: "Jun 1", topic: "From Text to Spaceship", speaker: "Ryan McClelland, NASA GSFC" },
 ];
 
 const leadership = [
