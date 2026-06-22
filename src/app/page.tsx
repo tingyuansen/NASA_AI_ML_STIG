@@ -1635,7 +1635,7 @@ function Footer() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-cream">
+    <main id="top" className="min-h-screen bg-cream">
       <Navigation />
       <HeroSection />
       <ValuePropBand />
