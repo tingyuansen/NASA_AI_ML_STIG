@@ -765,7 +765,7 @@ const schedule: ScheduleEntry[] = [
 const leadership = [
   { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true, photo: "/images/team/yuan-sen-ting.jpg" },
   { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: true, photo: "/images/team/digvijay-wadekar.jpg" },
-  { name: "Andrew Saydjari", affiliation: "Princeton University · Hubble Fellow", chair: false, photo: "/images/team/andrew-saydjari.jpg" },
+  { name: "Andrew Saydjari", affiliation: "Princeton University", chair: false, photo: "/images/team/andrew-saydjari.jpg" },
   { name: "Alex Gagliano", affiliation: "MIT", chair: false, photo: "/images/team/alex-gagliano.jpg" },
   { name: "Carol Cuesta-Lazaro", affiliation: "Institute for Advanced Study at Princeton/Flatiron Institute", chair: false, photo: "/images/team/carol-cuesta-lazaro.jpg" },
   { name: "Georgios Valogiannis", affiliation: "University of Chicago", chair: false, photo: "/images/team/georgios-valogiannis.jpg" },
