@@ -1,52 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0f1a;
-  --foreground: #e2e8f0;
+/* ------------------------------------------------------------------ */
+/*  Green Street layout + type, on Green Street's CREAM light theme,    */
+/*  with a BLUE accent. Token names semantic-by-role:                  */
+/*    cream = page bg   cream-2 = card   deep = dark sections          */
+/*    ink = text   green = primary accent (blue)   teal = links        */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --color-cream: #f7f7f2;
+  --color-cream-2: #ffffff;
+  --color-sand: #eef1f7;
+  --color-ink: #162331;
+  --color-deep: #0c2340;
+  --color-deep-2: #16386b;
+  --color-teal: #2563eb;
+  --color-teal-dark: #1d4ed8;
+  --color-green: #2563eb;
+  --color-green-light: #38bdf8;
+  --color-green-soft: #bfdbfe;
+
+  --shadow-card: 0 12px 22px -10px rgba(22, 35, 49, 0.14);
+  --shadow-card-hover: 0 26px 46px -16px rgba(12, 35, 64, 0.24);
+  --shadow-soft: 0 10px 20px rgba(22, 35, 49, 0.09);
 }
 
+/* Fonts via @theme inline so the next/font variables are inlined into the
+   font-display / font-sans utilities (a plain @theme does NOT emit them). */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-rethink), var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+@layer base {
+  html { scroll-behavior: smooth; font-size: 110%; }
+  section[id] { scroll-margin-top: 5.5rem; }
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-rethink), var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+::selection { background-color: rgba(37, 99, 235, 0.22); color: var(--color-ink); }
+
+@layer components {
+  .eyebrow { @apply inline-block font-display text-xs font-bold uppercase tracking-[0.22em] text-green; }
+  .section-title { @apply font-display text-4xl md:text-5xl font-bold tracking-tight text-ink; }
+
+  .card { @apply rounded-2xl border border-black/5 bg-cream-2; box-shadow: var(--shadow-card); }
+  .card-hover { @apply transition-all duration-300 hover:-translate-y-1; }
+  .card-hover:hover { box-shadow: var(--shadow-card-hover); border-color: rgba(37, 99, 235, 0.35); }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 font-display font-medium tracking-wide rounded-full bg-green text-white px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5;
+    box-shadow: 0 12px 26px -10px rgba(37, 99, 235, 0.55);
+  }
+  .btn-primary:hover { background-color: var(--color-teal-dark); }
+  .btn-outline { @apply inline-flex items-center justify-center gap-2 font-display font-medium tracking-wide rounded-full border border-ink/15 text-ink px-7 py-3.5 transition-all duration-200 hover:border-green hover:text-green; }
+  .btn-on-dark { @apply inline-flex items-center justify-center gap-2 font-display font-medium tracking-wide rounded-full border border-white/30 text-white px-7 py-3.5 transition-all duration-200 hover:bg-white/10 hover:border-white/60; }
+
+  .chip { @apply inline-flex items-center gap-1.5 text-sm font-medium rounded-full border border-green/25 bg-green/10 px-4 py-2 text-teal transition-all hover:bg-green/15 hover:border-green/45; }
 }
 
-/* Selection color */
-::selection {
-  background-color: rgba(59, 130, 246, 0.3);
-  color: inherit;
-}
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
-/* Subtle star-field animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 45s linear infinite; }
+.marquee-pause:hover .animate-marquee { animation-play-state: paused; }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
