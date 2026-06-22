@@ -19,6 +19,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ai4astro.org"),
   title: {
     default: "NASA Cosmic Origins AI/ML STIG",
     template: "%s | NASA AI/ML STIG",
@@ -42,6 +43,8 @@ export const metadata: Metadata = {
     title: "NASA Cosmic Origins AI/ML STIG",
     description:
       "Building AI literacy for astronomical research through stackable, modular training.",
+    url: "https://ai4astro.org",
+    siteName: "NASA Cosmic Origins AI/ML STIG",
     locale: "en_US",
     type: "website",
   },

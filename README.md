@@ -4,7 +4,7 @@
 
 ---
 
-## [Visit the Website for Lecture Recordings and Full Details](https://tingyuansen.github.io/NASA_AI_ML_STIG/)
+## [Visit the Website for Lecture Recordings and Full Details](https://ai4astro.org)
 
 All lecture recordings, slides, and additional resources are available on our website.
 
@@ -35,7 +35,7 @@ Materials are located in `public/Resources/` and are designed to serve as templa
 
 ## Website Development
 
-The website is built with [Next.js](https://nextjs.org/) + [Tailwind CSS](https://tailwindcss.com/) and deployed to GitHub Pages via GitHub Actions.
+The website is built with [Next.js](https://nextjs.org/) + [Tailwind CSS](https://tailwindcss.com/) and deployed to [Vercel](https://vercel.com/) (auto-deploys on push to `main`) at [ai4astro.org](https://ai4astro.org).
 
 To run locally:
 
@@ -50,6 +50,6 @@ For inquiries, please contact: ting.74@osu.edu
 
 ## Links
 
-- [Website](https://tingyuansen.github.io/NASA_AI_ML_STIG/)
+- [Website](https://ai4astro.org)
 - [NASA Cosmic Origins Program](https://cor.gsfc.nasa.gov/)
 - [Community White Paper (arXiv)](https://arxiv.org/abs/2509.02661)
