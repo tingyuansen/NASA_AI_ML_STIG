@@ -1413,7 +1413,7 @@ function LeadershipSection() {
               <div key={i} className="card card-hover overflow-hidden text-center group">
                 <div className="relative aspect-square w-full overflow-hidden bg-sand">
                   {photo ? (
-                    <img src={photo} alt={person.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                    <img src={`${BASE_PATH}${photo}`} alt={person.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center font-display text-3xl font-bold text-teal bg-gradient-to-br from-green/15 to-green-light/25">{initials(person.name)}</div>
                   )}
@@ -1459,7 +1459,7 @@ function InstitutionsMarquee() {
         <div className="flex gap-5 w-max animate-marquee items-stretch">
           {row.map((inst, i) => (
             <div key={i} title={inst.name} className="shrink-0 h-24 flex items-center justify-center rounded-2xl border border-black/5 bg-cream-2 px-10 shadow-[var(--shadow-soft)]">
-              <img src={`/images/logos/${inst.slug}.png`} alt={inst.name} className="h-10 w-auto object-contain" />
+              <img src={`${BASE_PATH}/images/logos/${inst.slug}.png`} alt={inst.name} className="h-10 w-auto object-contain" />
             </div>
           ))}
         </div>
