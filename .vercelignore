@@ -1,0 +1,9 @@
+# Build artifacts & deps (Vercel installs/builds these itself)
+node_modules
+.next
+out
+.git
+
+# Large LFS data assets — not served by the site (notebooks reference them on GitHub)
+*.tar.gz
+*.mp4
