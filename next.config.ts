@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
-// Deployed on Vercel and served at the domain root, so no basePath is needed.
-// BASE_PATH in the app falls back to "" when NEXT_PUBLIC_BASE_PATH is unset.
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: isGitHubPages ? "/NASA_AI_ML_STIG" : "",
+  assetPrefix: isGitHubPages ? "/NASA_AI_ML_STIG/" : "",
   images: {
     unoptimized: true,
   },
