@@ -28,11 +28,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build with Next.js
-        run: npm run build
-        env:
-          GITHUB_PAGES: "true"
-          NEXT_PUBLIC_BASE_PATH: "/NASA_AI_ML_STIG"
+      - name: Build redirect page
+        run: |
+          mkdir -p out
+          cat > out/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <meta http-equiv="refresh" content="0; url=https://ai4astro.org/">
+              <link rel="canonical" href="https://ai4astro.org/">
+              <title>NASA AI/ML STIG</title>
+            </head>
+            <body>
+              <p>Redirecting to <a href="https://ai4astro.org/">ai4astro.org</a>.</p>
+            </body>
+          </html>
+          EOF
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
