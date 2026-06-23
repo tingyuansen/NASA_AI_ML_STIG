@@ -711,6 +711,29 @@ const lectures: Lecture[] = [
       },
     ],
   },
+  {
+    number: 25,
+    title: "Open Science and AI at NASA",
+    speaker: "Steve Crawford",
+    affiliation:
+      "Senior Program Executive for Open Science Implementation, Office of the Chief Science Data Officer, Science Mission Directorate (OCSDO-SMD)",
+    description:
+      "An update from NASA's Office of the Chief Science Data Officer on how SMD is expanding the availability and utility of scientific data for open science and AI-enabled discovery. Covers emerging policy work around artificial intelligence and open science, new Science Cloud and High-End Computing capabilities, and foundation-model efforts designed to support scientific research across NASA.",
+    topics: [
+      "OCSDO and SMD activities supporting open science",
+      "Policy development related to artificial intelligence and open science",
+      "Modernizing data and compute for scientific discoveries",
+      "Science Cloud and High-End Computing capabilities",
+      "Foundation models for scientific discovery",
+      "Considerations and opportunities for using artificial intelligence",
+    ],
+    links: [
+      {
+        label: "Join via NASA STIG webpage",
+        href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/artificial-intelligence-machine-learning-science-technology-interest-group-ai-ml-stig/",
+      },
+    ],
+  },
 ];
 
 interface ScheduleRow {
@@ -759,7 +782,7 @@ const schedule: ScheduleEntry[] = [
   { module: "Module 8: AI Opportunities at NASA" },
   { week: 21, date: "May 4", topic: "NASA ASTRA Initiative", speaker: "Peter Kurczynski & Swara Ravindranath, NASA GSFC" },
   { week: 24, date: "Jun 1", topic: "From Text to Spaceship", speaker: "Ryan McClelland, NASA GSFC" },
-  { week: 25, date: "Jun 29", topic: "To Be Announced", speaker: "Steven M. Crawford, NASA HQ" },
+  { week: 25, date: "Jun 29, 4 pm ET", topic: "Open Science and AI at NASA", speaker: "Steve Crawford, NASA SMD OCSDO" },
 ];
 
 const leadership = [
