@@ -713,24 +713,36 @@ const lectures: Lecture[] = [
   },
   {
     number: 25,
-    title: "Open Science and AI at NASA",
-    speaker: "Steve Crawford",
+    title: "NASA's Open-Source Science Initiative",
+    speaker: "Steven Crawford",
     affiliation:
-      "Senior Program Executive for Open Science Implementation, Office of the Chief Science Data Officer, Science Mission Directorate (OCSDO-SMD)",
+      "Science Data Officer for Policy, Chief Science Data Office, NASA Headquarters",
     description:
-      "An update from NASA's Office of the Chief Science Data Officer on how SMD is expanding the availability and utility of scientific data for open science and AI-enabled discovery. Covers emerging policy work around artificial intelligence and open science, new Science Cloud and High-End Computing capabilities, and foundation-model efforts designed to support scientific research across NASA.",
+      "A slide-based overview of NASA's Open-Source Science Initiative: what open science means in practice, how the federal Year of Open Science led into NASA's policy and infrastructure work, and how SMD is supporting open publications, data, software, meetings, tools, training, and community capacity through SPD-41a, core data services, open-source software funding, TOPS, and the NASA Open Science Certificate.",
     topics: [
-      "OCSDO and SMD activities supporting open science",
-      "Policy development related to artificial intelligence and open science",
-      "Modernizing data and compute for scientific discoveries",
-      "Science Cloud and High-End Computing capabilities",
-      "Foundation models for scientific discovery",
-      "Considerations and opportunities for using artificial intelligence",
+      "Open science as shared research products and processes with security, privacy, reproducibility, and equity",
+      "The 2023 Year of Open Science and its federal open-science goals",
+      "NASA's implementation model: policy and governance, core services, incentives, and community",
+      "SPD-41a requirements for open publications, research data, software, mission data, and meetings",
+      "Science Explorer, Science Discovery Engine, and cross-division data and computing infrastructure",
+      "TOPS, Open Science 101 modules, and the NASA Open Science Certificate",
     ],
     links: [
       {
-        label: "Join via NASA STIG webpage",
-        href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/artificial-intelligence-machine-learning-science-technology-interest-group-ai-ml-stig/",
+        label: "View Slides (PDF)",
+        href: `${BASE_PATH}/Resources/Lecture25_Steven_Crawford/NASAs_Open_Source_Science_Initiative_STIG.pdf`,
+      },
+      {
+        label: "NASA Scientific Information Policy",
+        href: "https://science.nasa.gov/researchers/science-data/science-information-policy",
+      },
+      {
+        label: "Transform to Open Science (TOPS)",
+        href: "https://nasa.github.io/Transform-to-Open-Science/",
+      },
+      {
+        label: "Open Science Federal Portal",
+        href: "https://open.science.gov/",
       },
     ],
   },
