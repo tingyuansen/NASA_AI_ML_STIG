@@ -737,8 +737,8 @@ const lectures: Lecture[] = [
         href: "https://science.nasa.gov/researchers/science-data/science-information-policy",
       },
       {
-        label: "Transform to Open Science (TOPS)",
-        href: "https://nasa.github.io/Transform-to-Open-Science/",
+        label: "NASA Open Science Trainings",
+        href: "https://science.nasa.gov/open-science/training/",
       },
       {
         label: "Open Science Federal Portal",
