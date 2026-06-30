@@ -1231,7 +1231,7 @@ function TabbedShowcase() {
 function LectureCard({ row, lecture, playing, onPlay }: { row: ScheduleRow; lecture?: Lecture; playing: boolean; onPlay: () => void }) {
   const yt = lecture?.youtube;
   return (
-    <div className="card overflow-hidden p-6 md:p-7">
+    <div className="overflow-hidden">
       {/* Top panel: video (left) + course description (right) */}
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-start">
         <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-deep border border-black/5">
@@ -1342,14 +1342,21 @@ function ModuleIcon({ keyId, className = "w-5 h-5" }: { keyId: string; className
 }
 
 function CurriculumLibrary() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [playing, setPlaying] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState(-1);
+  const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
+  const [playingWeek, setPlayingWeek] = useState<number | null>(null);
   const lectureMap = new Map(lectures.map((l) => [l.number, l]));
-  const group = moduleGroups[activeTab];
-  const scroller = React.useRef<HTMLDivElement>(null);
-  const scrollByCard = (dir: number) => scroller.current?.scrollBy({ left: dir * (scroller.current?.clientWidth || 0), behavior: "smooth" });
-  const tabScroller = React.useRef<HTMLDivElement>(null);
-  const scrollTabs = (dir: number) => tabScroller.current?.scrollBy({ left: dir * 320, behavior: "smooth" });
+
+  const activeEntries: ScheduleEntry[] = [];
+  if (activeTab === -1) {
+    activeEntries.push(...schedule);
+  } else {
+    const group = moduleGroups[activeTab];
+    if (group.module) {
+      activeEntries.push({ module: group.module });
+    }
+    activeEntries.push(...group.rows);
+  }
 
   return (
     <section id="curriculum" className="py-24 relative bg-deep overflow-hidden">
@@ -1364,63 +1371,169 @@ function CurriculumLibrary() {
           <p className="text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">{lectures.length} lectures across {moduleCount} modules — recordings, summaries, and materials, all in one place.</p>
         </div>
 
-        {/* Module tabs on top — scrollable, with explicit left/right arrows */}
-        <div className="flex items-center gap-2 md:gap-3">
-          <button onClick={() => scrollTabs(-1)} aria-label="Scroll modules left" className="hidden md:flex shrink-0 w-10 h-10 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-colors items-center justify-center">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        {/* Module filter cards grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 mb-10">
+          {/* All Lectures Card */}
+          <button
+            onClick={() => { setActiveTab(-1); setExpandedWeek(null); setPlayingWeek(null); }}
+            className={`text-left rounded-2xl border p-4 transition-all duration-200 cursor-pointer ${
+              activeTab === -1
+                ? "bg-green/15 border-green/50 ring-1 ring-green/40 shadow-[var(--shadow-soft)]"
+                : "bg-white/5 border-white/10 hover:border-white/25 hover:-translate-y-0.5"
+            }`}
+          >
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${activeTab === -1 ? "bg-green text-white" : "bg-white/10 text-green-light"}`}>
+                <Logo className="w-5 h-5" />
+              </span>
+              <span className="font-display text-[11px] font-bold uppercase tracking-wider text-green-light">Program</span>
+            </div>
+            <div className="font-display font-semibold text-white text-sm leading-snug line-clamp-2 min-h-[2.5rem]">All Lectures</div>
+            <div className="text-xs text-white/45 mt-1">{lectures.length} lectures</div>
           </button>
-          <div ref={tabScroller} className="no-scrollbar flex gap-3 overflow-x-auto pb-3 flex-1 scroll-px-1">
+
+          {/* Individual Module Cards */}
           {moduleGroups.map((g, i) => {
             const isActive = activeTab === i;
             const keyId = g.module ? g.num : "ov";
+            const label = g.module ? `Module ${g.num}` : "Overview";
             return (
               <button
                 key={i}
-                onClick={() => { setActiveTab(i); setPlaying(null); }}
-                className={`shrink-0 w-[15rem] text-left rounded-2xl border p-4 transition-all ${isActive ? "bg-green/15 border-green/50 ring-1 ring-green/40" : "bg-white/5 border-white/10 hover:border-white/25 hover:-translate-y-0.5"}`}
+                onClick={() => { setActiveTab(i); setExpandedWeek(null); setPlayingWeek(null); }}
+                className={`text-left rounded-2xl border p-4 transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-green/15 border-green/50 ring-1 ring-green/40 shadow-[var(--shadow-soft)]"
+                    : "bg-white/5 border-white/10 hover:border-white/25 hover:-translate-y-0.5"
+                }`}
               >
                 <div className="flex items-center gap-2.5 mb-2">
                   <span className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${isActive ? "bg-green text-white" : "bg-white/10 text-green-light"}`}>
                     <ModuleIcon keyId={keyId} className="w-5 h-5" />
                   </span>
-                  <span className="font-display text-[11px] font-bold uppercase tracking-wider text-green-light">{g.module ? `Module ${g.num}` : "Overview"}</span>
+                  <span className="font-display text-[11px] font-bold uppercase tracking-wider text-green-light">{label}</span>
                 </div>
-                <div className="font-display font-semibold text-white text-sm leading-snug">{g.title}</div>
+                <div className="font-display font-semibold text-white text-sm leading-snug line-clamp-2 min-h-[2.5rem]">{g.title}</div>
                 <div className="text-xs text-white/45 mt-1">{g.rows.length} lecture{g.rows.length > 1 ? "s" : ""}</div>
               </button>
             );
           })}
-          </div>
-          <button onClick={() => scrollTabs(1)} aria-label="Scroll modules right" className="hidden md:flex shrink-0 w-10 h-10 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-colors items-center justify-center">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </button>
         </div>
 
-        {/* Sub-bar: module title + lecture count (left) + prev/next arrows (right) */}
-        <div className="flex items-center justify-between gap-4 mt-10 mb-5">
+        {/* Sub-bar showing the active group title */}
+        <div className="mb-6 flex items-baseline justify-between gap-4">
           <div className="flex items-baseline gap-3 min-w-0">
-            <h3 className="font-display text-xl font-bold text-white truncate">{group.module ? group.title : "Overview"}</h3>
-            <span className="text-sm text-white/45 shrink-0">{group.rows.length} lecture{group.rows.length > 1 ? "s" : ""}</span>
+            <h3 className="font-display text-xl font-bold text-white truncate">
+              {activeTab === -1 ? "All Lectures" : (moduleGroups[activeTab].module ? moduleGroups[activeTab].title : "Overview")}
+            </h3>
+            <span className="text-sm text-white/45 shrink-0">
+              {activeTab === -1 
+                ? `${lectures.length} scheduled lectures` 
+                : `${moduleGroups[activeTab].rows.length} lecture${moduleGroups[activeTab].rows.length > 1 ? "s" : ""}`
+              }
+            </span>
           </div>
-          {group.rows.length > 1 && (
-            <div className="flex gap-2 shrink-0">
-              <button onClick={() => scrollByCard(-1)} aria-label="Previous lecture" className="w-11 h-11 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-colors flex items-center justify-center">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button onClick={() => scrollByCard(1)} aria-label="Next lecture" className="w-11 h-11 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-colors flex items-center justify-center">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </button>
-            </div>
-          )}
         </div>
 
-        {/* Lecture carousel — one per view, snap, arrow-navigated */}
-        <div ref={scroller} key={activeTab} className="no-scrollbar flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-1 px-1 pb-1">
-          {group.rows.map((row) => (
-            <div key={row.week} className="snap-start shrink-0 w-full">
-              <LectureCard row={row} lecture={lectureMap.get(row.week)} playing={playing === row.week} onPlay={() => setPlaying(row.week)} />
-            </div>
-          ))}
+        {/* Vertical Accordion List */}
+        <div className="space-y-4">
+          {activeEntries.map((entry, idx) => {
+            if (isModuleHeader(entry)) {
+              const m = entry.module.match(/^Module\s+(\d+):\s*(.*)$/);
+              const num = m ? m[1] : "";
+              const title = m ? m[2] : entry.module;
+              return (
+                <div key={`mod-hdr-${idx}`} className="pt-8 first:pt-0 pb-2">
+                  <div className="flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-xl bg-white/10 text-green-light flex items-center justify-center border border-white/10 shrink-0">
+                      <ModuleIcon keyId={num} className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <span className="block font-display text-[11px] font-bold uppercase tracking-wider text-green-light">Module {num}</span>
+                      <h3 className="font-display text-lg md:text-xl font-bold text-white leading-tight">{title}</h3>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            const lecture = lectureMap.get(entry.week);
+            const isExpanded = expandedWeek === entry.week;
+
+            return (
+              <div
+                key={`lecture-row-${entry.week}`}
+                className={`card overflow-hidden transition-all duration-300 ${
+                  isExpanded
+                    ? "ring-2 ring-green/50 shadow-[var(--shadow-card-hover)]"
+                    : "hover:border-white/20"
+                }`}
+              >
+                {/* Accordion header button */}
+                <button
+                  onClick={() => {
+                    setExpandedWeek(isExpanded ? null : entry.week);
+                    if (isExpanded) setPlayingWeek(null);
+                  }}
+                  className="w-full text-left p-5 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-black/[0.01] transition-colors"
+                >
+                  <div className="flex items-start gap-4 min-w-0">
+                    <span className="shrink-0 bg-green/10 border border-green/20 text-green font-display font-bold text-xs px-2.5 py-1.5 rounded-lg">
+                      Week {entry.week}
+                    </span>
+                    
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap mb-1">
+                        <span className="text-xs text-ink/40 font-medium">{entry.date}</span>
+                        {/* Textbook chapter removed from collapsed header */}
+                      </div>
+                      <h4 className="font-display text-base md:text-lg font-bold text-ink leading-snug hover:text-green transition-colors">
+                        {entry.topic}
+                      </h4>
+                      <div className="text-sm text-ink/55 mt-1">
+                        {lecture ? `${lecture.speaker} · ${lecture.affiliation}` : entry.speaker}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 shrink-0 self-end md:self-center">
+                    {lecture ? (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal bg-green/10 border border-green/20 px-3 py-1 rounded-full">
+                        {lecture.youtube && (
+                          <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                          </svg>
+                        )}
+                        Video &amp; Materials
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink/40 bg-ink/5 border border-ink/10 px-3 py-1 rounded-full">
+                        Upcoming
+                      </span>
+                    )}
+
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-ink/5 text-ink/60 transition-transform duration-200 ${isExpanded ? "rotate-180 bg-green/10 text-green" : ""}`}>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+
+                {/* Expanded Detail Panel */}
+                {isExpanded && (
+                  <div className="border-t border-black/5 bg-cream/10 p-5 md:p-6 transition-all duration-300">
+                    <LectureCard
+                      row={entry}
+                      lecture={lecture}
+                      playing={playingWeek === entry.week}
+                      onPlay={() => setPlayingWeek(entry.week)}
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
