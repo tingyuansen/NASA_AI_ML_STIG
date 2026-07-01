@@ -727,6 +727,7 @@ const lectures: Lecture[] = [
       "Science Explorer, Science Discovery Engine, and cross-division data and computing infrastructure",
       "TOPS, Open Science 101 modules, and the NASA Open Science Certificate",
     ],
+    youtube: "3yR7ttMsJok",
     links: [
       {
         label: "View Slides (PDF)",
