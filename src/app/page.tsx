@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 /* ------------------------------------------------------------------ */
 
 const GITHUB_BASE =
-  "https://github.com/tingyuansen/NASA_AI_ML_STIG/blob/main/public";
+  "https://github.com/nasa-ai-ml-stig/NASA_AI_ML_STIG/blob/main/public";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -1707,7 +1707,7 @@ function Footer() {
     ] },
     { title: "Materials", links: [
       { label: "Textbook", href: "https://deeplearning4astro.com" },
-      { label: "GitHub Repository", href: "https://github.com/tingyuansen/NASA_AI_ML_STIG" },
+      { label: "GitHub Repository", href: "https://github.com/nasa-ai-ml-stig/NASA_AI_ML_STIG" },
       { label: "Community White Paper", href: "https://arxiv.org/abs/2509.02661" },
       { label: "Cosmic Origins Program", href: "https://cor.gsfc.nasa.gov/" },
     ] },
