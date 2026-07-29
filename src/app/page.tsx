@@ -806,8 +806,8 @@ interface LeadershipPerson {
 }
 
 const leadership2026: LeadershipPerson[] = [
-  { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true, photo: "/images/team/yuan-sen-ting.jpg" },
   { name: "Jay Wadekar", affiliation: "University of Texas at Austin", chair: true, photo: "/images/team/jay-wadekar.jpg" },
+  { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true, photo: "/images/team/yuan-sen-ting.jpg" },
   { name: "Alex Gagliano", affiliation: "MIT", photo: "/images/team/alex-gagliano.jpg" },
   { name: "Ce Sui", affiliation: "The Ohio State University", photo: "/images/team/ce-sui.jpg" },
   { name: "Tri Nguyen", affiliation: "Northwestern University", photo: "/images/team/tri-nguyen.jpg" },
