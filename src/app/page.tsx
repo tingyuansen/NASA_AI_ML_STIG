@@ -1618,7 +1618,7 @@ function LeadershipSection() {
           <span className="eyebrow">Team</span>
           <h2 className="section-title mt-3 mb-5">Leadership across the series</h2>
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/60">
-            Meet the people guiding the current series, or revisit the council that led its inaugural year.
+            Meet the current council and revisit the inaugural-year team.
           </p>
         </div>
 
