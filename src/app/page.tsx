@@ -798,14 +798,37 @@ const schedule: ScheduleEntry[] = [
   { week: 25, date: "Jun 29, 4 pm ET", topic: "Open Science and AI at NASA", speaker: "Steve Crawford, NASA SMD OCSDO" },
 ];
 
-const leadership = [
+interface LeadershipPerson {
+  name: string;
+  affiliation: string;
+  chair?: boolean;
+  photo: string;
+}
+
+const leadership2026: LeadershipPerson[] = [
   { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true, photo: "/images/team/yuan-sen-ting.jpg" },
-  { name: "Digvijay Wadekar", affiliation: "University of Texas at Austin", chair: true, photo: "/images/team/digvijay-wadekar.jpg" },
-  { name: "Andrew Saydjari", affiliation: "Princeton University", chair: false, photo: "/images/team/andrew-saydjari.jpg" },
-  { name: "Alex Gagliano", affiliation: "MIT", chair: false, photo: "/images/team/alex-gagliano.jpg" },
-  { name: "Carol Cuesta-Lazaro", affiliation: "Institute for Advanced Study at Princeton/Flatiron Institute", chair: false, photo: "/images/team/carol-cuesta-lazaro.jpg" },
-  { name: "Georgios Valogiannis", affiliation: "University of Chicago", chair: false, photo: "/images/team/georgios-valogiannis.jpg" },
-  { name: "Siddharth Mishra-Sharma", affiliation: "Boston University", chair: false, photo: "/images/team/siddharth-mishra-sharma.jpg" },
+  { name: "Jay Wadekar", affiliation: "University of Texas at Austin", chair: true, photo: "/images/team/jay-wadekar.jpg" },
+  { name: "Alex Gagliano", affiliation: "MIT", photo: "/images/team/alex-gagliano.jpg" },
+  { name: "Ce Sui", affiliation: "The Ohio State University", photo: "/images/team/ce-sui.jpg" },
+  { name: "Tri Nguyen", affiliation: "Northwestern University", photo: "/images/team/tri-nguyen.jpg" },
+  { name: "Artem Poliszczuk", affiliation: "Stanford University", photo: "/images/team/artem-poliszczuk.jpg" },
+  { name: "Julie Rolla", affiliation: "NASA Jet Propulsion Laboratory", photo: "/images/team/julie-rolla.jpg" },
+];
+
+const advisory2026: LeadershipPerson[] = [
+  { name: "Moritz Münchmeyer", affiliation: "University of Wisconsin–Madison", photo: "/images/team/moritz-munchmeyer.jpg" },
+  { name: "Bhuvnesh Jain", affiliation: "University of Pennsylvania", photo: "/images/team/bhuvnesh-jain.jpg" },
+  { name: "Kelle Cruz", affiliation: "Hunter College, CUNY", photo: "/images/team/kelle-cruz.jpg" },
+];
+
+const leadership2025: LeadershipPerson[] = [
+  { name: "Yuan-Sen Ting", affiliation: "The Ohio State University", chair: true, photo: "/images/team/yuan-sen-ting.jpg" },
+  { name: "Jay Wadekar", affiliation: "University of Texas at Austin", chair: true, photo: "/images/team/jay-wadekar.jpg" },
+  { name: "Andrew Saydjari", affiliation: "Princeton University", photo: "/images/team/andrew-saydjari.jpg" },
+  { name: "Alex Gagliano", affiliation: "MIT", photo: "/images/team/alex-gagliano.jpg" },
+  { name: "Carol Cuesta-Lazaro", affiliation: "Institute for Advanced Study / Flatiron Institute", photo: "/images/team/carol-cuesta-lazaro.jpg" },
+  { name: "Georgios Valogiannis", affiliation: "University of Chicago", photo: "/images/team/georgios-valogiannis.jpg" },
+  { name: "Siddharth Mishra-Sharma", affiliation: "Boston University", photo: "/images/team/siddharth-mishra-sharma.jpg" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -981,7 +1004,13 @@ function HeroSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-16">
         <div className="max-w-3xl">
-          <span className="font-display text-xs font-bold uppercase tracking-[0.22em] text-green-light">Cosmic Origins Program</span>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="font-display text-xs font-bold uppercase tracking-[0.22em] text-green-light">Cosmic Origins Program</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-green-light/25 bg-green-light/10 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-wider text-green-light">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-light" />
+              2026–2027 planning underway
+            </span>
+          </div>
           <h1 className="font-display text-4xl md:text-6xl font-bold text-white mt-6 mb-6 tracking-tight leading-[1.04]">
             <span className="text-green-light">NASA</span> AI/ML Science &amp; Technology Interest Group
           </h1>
@@ -989,8 +1018,12 @@ function HeroSection() {
             Building AI literacy for astronomical research through stackable,
             bite-sized modular training designed for the astronomy community.
           </p>
+          <p className="-mt-4 mb-9 max-w-2xl font-display text-sm font-semibold text-white/80">
+            Weekly sessions resume Monday, September 14, 2026 at 4:00 PM ET.
+            Topics and speakers will be announced as they are confirmed.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#curriculum" className="btn-primary">Explore the lectures</a>
+            <a href="#curriculum" className="btn-primary">Browse all lectures</a>
             <a href="#participate" className="btn-on-dark">Join the community</a>
           </div>
 
@@ -1253,7 +1286,7 @@ function LectureCard({ row, lecture, playing, onPlay }: { row: ScheduleRow; lect
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white/45 gap-2">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-              <span className="text-[11px] uppercase tracking-wider">Upcoming</span>
+              <span className="text-[11px] uppercase tracking-wider">Materials pending</span>
             </div>
           )}
         </div>
@@ -1274,7 +1307,7 @@ function LectureCard({ row, lecture, playing, onPlay }: { row: ScheduleRow; lect
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
             </a>
           )}
-          {!lecture && <p className="text-sm text-ink/40 italic">Materials to be announced.</p>}
+          {!lecture && <p className="text-sm text-ink/40 italic">Materials will be added when available.</p>}
         </div>
       </div>
 
@@ -1368,8 +1401,11 @@ function CurriculumLibrary() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div className="text-center mb-10">
           <span className="font-display text-xs font-bold uppercase tracking-[0.22em] text-green-light">Curriculum &amp; Lectures</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mt-3 mb-4">Browse the program by module</h2>
-          <p className="text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">{lectures.length} lectures across {moduleCount} modules — recordings, summaries, and materials, all in one place.</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mt-3 mb-4">Explore the growing lecture library</h2>
+          <p className="text-lg text-white/65 max-w-3xl mx-auto leading-relaxed">
+            One continuous collection of recordings, summaries, and materials from the STIG lecture series.
+            New 2026–2027 lectures will be added here as the program is confirmed.
+          </p>
         </div>
 
         {/* Module filter cards grid */}
@@ -1428,8 +1464,8 @@ function CurriculumLibrary() {
               {activeTab === -1 ? "All Lectures" : (moduleGroups[activeTab].module ? moduleGroups[activeTab].title : "Overview")}
             </h3>
             <span className="text-sm text-white/45 shrink-0">
-              {activeTab === -1 
-                ? `${lectures.length} scheduled lectures` 
+              {activeTab === -1
+                ? `${lectures.length} lectures in the library`
                 : `${moduleGroups[activeTab].rows.length} lecture${moduleGroups[activeTab].rows.length > 1 ? "s" : ""}`
               }
             </span>
@@ -1509,7 +1545,7 @@ function CurriculumLibrary() {
                       </span>
                     ) : (
                       <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink/40 bg-ink/5 border border-ink/10 px-3 py-1 rounded-full">
-                        Upcoming
+                        Materials pending
                       </span>
                     )}
 
@@ -1545,39 +1581,95 @@ function CurriculumLibrary() {
 /*  Leadership — card grid (photo-ready)                               */
 /* ------------------------------------------------------------------ */
 
-function LeadershipSection() {
+function LeadershipGrid({ people, compact = false }: { people: LeadershipPerson[]; compact?: boolean }) {
   const initials = (name: string) => name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+
+  return (
+    <div className={`grid grid-cols-2 sm:grid-cols-3 ${compact ? "lg:grid-cols-3 max-w-4xl mx-auto" : "lg:grid-cols-4"} gap-6`}>
+      {people.map((person) => (
+        <div key={person.name} className="card card-hover overflow-hidden text-center group">
+          <div className="relative aspect-square w-full overflow-hidden bg-sand">
+            {person.photo ? (
+              <img src={`${BASE_PATH}${person.photo}`} alt={person.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center font-display text-3xl font-bold text-teal bg-gradient-to-br from-green/15 to-green-light/25">{initials(person.name)}</div>
+            )}
+            {person.chair && (
+              <span className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-wider text-white bg-green/90 backdrop-blur-sm rounded-full px-2.5 py-1">Co-Chair</span>
+            )}
+          </div>
+          <div className="p-5">
+            <div className="font-display font-bold text-ink leading-snug">{person.name}</div>
+            <div className="text-sm text-ink/55 mt-1 leading-snug">{person.affiliation}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LeadershipSection() {
+  const [activeYear, setActiveYear] = useState<"2026–2027" | "2025–2026">("2026–2027");
+
   return (
     <section id="leadership" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <span className="eyebrow">Team</span>
-          <h2 className="section-title mt-3 mb-6">Leadership Council</h2>
+          <h2 className="section-title mt-3 mb-5">Leadership across the series</h2>
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-ink/60">
+            Meet the people guiding the current series, or revisit the council that led its inaugural year.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {leadership.map((person, i) => {
-            const photo = (person as { photo?: string }).photo;
-            return (
-              <div key={i} className="card card-hover overflow-hidden text-center group">
-                <div className="relative aspect-square w-full overflow-hidden bg-sand">
-                  {photo ? (
-                    <img src={`${BASE_PATH}${photo}`} alt={person.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center font-display text-3xl font-bold text-teal bg-gradient-to-br from-green/15 to-green-light/25">{initials(person.name)}</div>
-                  )}
-                  {person.chair && (
-                    <span className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-wider text-white bg-green/90 backdrop-blur-sm rounded-full px-2.5 py-1">Co-Chair</span>
-                  )}
-                </div>
-                <div className="p-5">
-                  <div className="font-display font-bold text-ink leading-snug">{person.name}</div>
-                  <div className="text-sm text-ink/55 mt-1 leading-snug">{person.affiliation}</div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="mb-12 flex justify-center">
+          <div className="inline-flex rounded-full border border-black/10 bg-white p-1 shadow-[var(--shadow-soft)]" role="tablist" aria-label="Leadership Council year">
+            {(["2026–2027", "2025–2026"] as const).map((year) => (
+              <button
+                key={year}
+                type="button"
+                role="tab"
+                aria-selected={activeYear === year}
+                onClick={() => setActiveYear(year)}
+                className={`rounded-full px-5 py-2.5 font-display text-sm font-semibold transition-all ${
+                  activeYear === year
+                    ? "bg-deep text-white shadow-sm"
+                    : "text-ink/55 hover:text-ink"
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {activeYear === "2026–2027" ? (
+          <div role="tabpanel">
+            <div className="mb-14">
+              <div className="mb-7 text-center">
+                <h3 className="font-display text-2xl font-bold text-ink">2026–2027 Leadership Council</h3>
+                <p className="mt-2 text-ink/55">Co-chairs and working council for the upcoming lecture year.</p>
+              </div>
+              <LeadershipGrid people={leadership2026} />
+            </div>
+
+            <div className="border-t border-black/10 pt-12">
+              <div className="mb-7 text-center">
+                <h3 className="font-display text-2xl font-bold text-ink">Advisory Council</h3>
+                <p className="mt-2 text-ink/55">Senior advisors supporting the direction and continuity of the program.</p>
+              </div>
+              <LeadershipGrid people={advisory2026} compact />
+            </div>
+          </div>
+        ) : (
+          <div role="tabpanel">
+            <div className="mb-7 text-center">
+              <h3 className="font-display text-2xl font-bold text-ink">2025–2026 Leadership Council</h3>
+              <p className="mt-2 text-ink/55">The council for the inaugural academic-year series.</p>
+            </div>
+            <LeadershipGrid people={leadership2025} />
+          </div>
+        )}
 
         <p className="text-center text-sm text-ink/50 mt-10">
           For inquiries, please contact:{" "}
@@ -1636,7 +1728,7 @@ function ParticipateSection() {
       tab: "Weekly meetings",
       tag: "Live · Mondays",
       title: "Join the weekly meeting",
-      body: "Sessions run live on Mondays at 4:00 PM ET, remote only. Join the weekly meeting to take part, ask questions, and help shape the discussion as the series unfolds.",
+      body: "The 2026–2027 series begins Monday, September 14, 2026. Sessions run remotely on Mondays at 4:00 PM ET. Join live to ask questions and help shape the discussion as the series unfolds.",
       image: "participate-async.jpg",
       cta: { label: "NASA AI/ML STIG page", href: "https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/artificial-intelligence-machine-learning-science-technology-interest-group-ai-ml-stig/" },
     },
@@ -1644,7 +1736,7 @@ function ParticipateSection() {
       tab: "Open materials",
       tag: "Free & open",
       title: "Use the recordings & notebooks",
-      body: "Every lecture is recorded and paired with runnable notebooks and slides — all freely available. Learn on your own schedule, or use the materials to teach.",
+      body: "Lecture recordings and available notebooks and slides remain freely accessible in one continuous library. Learn on your own schedule, reuse the materials to teach, and return as new lectures are added.",
       image: "showcase-recordings.jpg",
       cta: { label: "Browse the curriculum", href: "#curriculum" },
     },
@@ -1755,7 +1847,7 @@ function Footer() {
               <span className="font-display font-bold text-xl text-white">NASA AI/ML STIG</span>
             </div>
             <p className="text-sm text-white/55 leading-relaxed mb-5">Building AI literacy for astronomical research through stackable, domain-specific training under the NASA Cosmic Origins Program.</p>
-            <p className="font-display text-xs font-semibold uppercase tracking-wider text-white/40">Mondays · 4:00 PM ET · Remote · Open to all</p>
+            <p className="font-display text-xs font-semibold uppercase tracking-wider text-white/40">Mondays · 4:00 PM ET · Resumes Sep 14, 2026 · Remote · Open to all</p>
           </div>
           {cols.map((col) => (
             <div key={col.title}>

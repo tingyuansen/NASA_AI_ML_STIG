@@ -6,7 +6,7 @@
 
 ## [Visit the Website for Lecture Recordings and Full Details](https://ai4astro.org)
 
-All lecture recordings, slides, and additional resources are available on our website.
+All available lecture recordings, slides, and additional resources are maintained as a continuous collection on our website. New lectures will be appended as they are confirmed and delivered.
 
 ---
 
@@ -18,8 +18,9 @@ Established under the Cosmic Origins Program Analysis Group (COPAG), the STIG br
 
 ## Program Details
 
-- **Duration:** 25 sessions (November 2025 - June 2026)
-- **Format:** Weekly 1-hour lectures plus focused module talks
+- **2025–2026 series:** 25 sessions (November 2025 – June 2026)
+- **2026–2027 series:** Begins September 14, 2026; topics and speakers are being finalized
+- **Format:** Weekly 1-hour lectures plus focused module talks, maintained as one continuous lecture library
 - **Time:** Mondays at 4:00 PM ET
 - **Delivery:** Remote only
 

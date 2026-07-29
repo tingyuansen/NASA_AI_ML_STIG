@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | NASA AI/ML STIG",
   },
   description:
-    "The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group provides structured, domain-specific AI education for astronomical research.",
+    "The NASA Cosmic Origins Program AI/ML Science and Technology Interest Group provides an open, growing library of domain-specific AI education for astronomical research.",
   keywords: [
     "NASA",
     "AI",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NASA Cosmic Origins AI/ML STIG",
     description:
-      "Building AI literacy for astronomical research through stackable, modular training.",
+      "Building AI literacy for astronomical research through an open, growing lecture series and modular training.",
     url: "https://ai4astro.org",
     siteName: "NASA Cosmic Origins AI/ML STIG",
     locale: "en_US",
